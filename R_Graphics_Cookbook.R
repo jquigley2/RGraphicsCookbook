@@ -4,7 +4,7 @@
 ###############################################################
 
 #1.1 Installing a package ###############
-installed.packages(c("ggplot2", "gcookbook"))
+install.packages(c("ggplot2", "gcookbook"))
 
 #1.2 Loading a package ###############
 #The library() function loads a package;  but a library is a set of packages.
@@ -12,6 +12,7 @@ library(ggplot2, gcookbook)
 
 #1.3 Loading a delimited text file ###############
 data <- read.csv("datafile.csv")
+data <- read.csv("R:/MSCI/ESG/Carbon_Metrics//ZipArchive/CarbonMetrics_20180605_explore_v1.xlsx")
 
 #or, if your data doesn't have a header row:
 data <- read.csv(datafile.csv, header=FALSE)
@@ -39,14 +40,14 @@ str(data)
 #1.4 Loading an Excel file ###############
 #The xlsx package contains the read.xlsx() function, which will read the first sheet of an Excel workbook:
 install.packages("xlsx")
-library(xlsx)
-?read.xlsx
+library(readxl)
+?read_xlsx
 
-data <- read.xlsx("datafile.xlsx", 1)
+data <- read_xlsx("datafile.xlsx", 1)
 #Or, reference the second sheet in the workbook...
-data <- read.xlsx("datafile.xlsx", sheetIndex=2)
+data <- read_xlsx("datafile.xlsx", sheetIndex=2)
 #Or, reference a sheet in the workbook by name...
-data <- read.xlsx("datafile.xlsx", sheetName="Revenue")
+data <- read_xlsx("datafile.xlsx", sheetName="Revenue")
 
 
 #For loading an older .xls workbook , the gdata package has the function read.xls():
